@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Plan-A-Trip - RoadTrekkers</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <!-- Modernizr -->
+    <script src="slider/modernizr.js"></script>
+    <script type="text/javascript" src="scripts/Fader.js"></script>
+    <script src="scripts/fade_in.js" type="text/javascript"></script>
+
+    <!-- HTML 5 shim for IE backwards compatibility -->
+    <!-- [if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+    </script>
+    <![endif]-->
+
+</head>
+<body class="templatemo_padaut_bg">
+<div id="main_container">
+    <div class="container" id="services">
+        <div class="row col-wrap">
+            <div id="left_container" class="col col-md-3 col-sm-12">
+                <div class="ncr_logo">
+                    <a href="#">
+                        <div id="logo"><img src="images/road_trip_logo.jpg" alt="RoadTrekkers Logo"></div>
+                    </a>
+                </div>
+                <nav id="main_nav">
+                    <ul class="nav">
+                        <li><a href="../../CIS%20272%20Agile/RoadTrekkersAlt/index.html">Home</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="plan-a-trip.html">Trip Library</a></li>
+                        <li><a href="../../CIS%20272%20Agile/RoadTrekkersAlt/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <!--&lt;!&ndash; nav &ndash;&gt;-->
+                <!--<form action="#" method="get" class="navbar-form" role="search">-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" class="form-control" placeholder="Search" id="keyword" name="keyword">-->
+                    <!--</div>-->
+                    <!--<button type="submit" class="btn btn-primary" name="Search">Go</button>-->
+                <!--</form>-->
+                <!--<div>-->
+                    <!--<a rel="nofollow" href="http://www.facebook.com"><img src="images/facebook.png"-->
+                                                                          <!--alt="Like us on Facebook"></a>-->
+                    <!--<a href="#"><img src="images/twitter.png" alt="Follow us on Twitter"></a>-->
+                    <!--<a href="#"><img src="images/rss.png" alt="RSS feeds"></a>-->
+                </div>
+                </div>
+            <div id="right_container" class="col col-md-9 col-sm-12">
+                <div class="row">
+                    <div class="col col-md-12">
+                        <h2>Plan-A-Trip</h2>
+                    </div>
+                </div>
+                <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+
+                <script>
+                    // Note: This example requires that you consent to location sharing when
+                    // prompted by your browser. If you see a blank space instead of the map, this
+                    // is probably because you have denied permission for location sharing.
+
+                    var map;
+
+                    function initialize() {
+                        var mapOptions = {
+                            zoom: 6
+                        };
+                        map = new google.maps.Map(document.getElementById('map-canvas'),
+                                mapOptions);
+
+                        // Try HTML5 geolocation
+                        if(navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(function(position) {
+                                var pos = new google.maps.LatLng(position.coords.latitude,
+                                        position.coords.longitude);
+
+                                var infowindow = new google.maps.InfoWindow({
+                                    map: map,
+                                    position: pos,
+                                    content: 'Location found using HTML5.'
+                                });
+
+                                map.setCenter(pos);
+                            }, function() {
+                                handleNoGeolocation(true);
+                            });
+                        } else {
+                            // Browser doesn't support Geolocation
+                            handleNoGeolocation(false);
+                        }
+                    }
+
+                    function handleNoGeolocation(errorFlag) {
+                        if (errorFlag) {
+                            var content = 'Error: The Geolocation service failed.';
+                        } else {
+                            var content = 'Error: Your browser doesn\'t support geolocation.';
+                        }
+
+                        var options = {
+                            map: map,
+                            position: new google.maps.LatLng(60, 105),
+                            content: content
+                        };
+
+                        var infowindow = new google.maps.InfoWindow(options);
+                        map.setCenter(options.position);
+                    }
+
+                    google.maps.event.addDomListener(window, 'load', initialize);
+
+                </script>
+                <!--<article class="row">-->
+                    <!--<div class="col col-md-6">-->
+                        <!--<img src="images/monsanto_small.jpg" alt="Monsanto" class="img-thumbnail img-responsive">-->
+                        <!--<h4>Monsanto</h4>-->
+
+                        <!--<p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora-->
+                            <!--torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo.</p>-->
+
+                        <!--<p><a rel="nofollow"-->
+                              <!--href="http://www.monsanto.com/pages/default.aspx"-->
+                              <!--class="btn btn-primary"-->
+                              <!--role="button">View</a></p>-->
+                    <!--</div>-->
+                    <!--<div class="col col-md-6">-->
+                        <!--<img src="images/dupont_cp_PSD-106_Exirel_article.jpg"-->
+                             <!--alt="Dupont"-->
+                             <!--class="img-thumbnail img-responsive">-->
+                        <!--<h4>Dupont</h4>-->
+
+                        <!--<p>Nullam ac urna eu felis dapibus condimentum sit amet a augue. Proin condimentum fermentum-->
+                            <!--nunc. Etiam pharetra, erat sed fermentum feugiat.</p>-->
+
+                        <!--<p><a rel="nofollow"-->
+                              <!--href="http://www.dupont.com/products-and-services/crop-protection/fruit-nut-vine-protection/products/asana-xl.html"-->
+                              <!--class="btn btn-primary"-->
+                              <!--role="button">View</a></p>-->
+                    <!--</div>-->
+                <!--</article>-->
+                <!--<article class="row">-->
+                    <!--<div class="col col-md-6">-->
+                        <!--<img src="images/basf_bee_health_530x170.jpg" alt="BASF" class="img-thumbnail img-responsive">-->
+                        <!--<h4>BASF</h4>-->
+
+                        <!--<p>Fusce feugiat dignissim pharetra. Vivamus blandit velit sapien, ac venenatis eros venenatis-->
+                            <!--nec. Sed nec ligula ut arcu bibendum euismod ac eget velit. In hac habitasse platea-->
+                            <!--dictumst.</p>-->
+
+                        <!--<p><a rel="nofollow"-->
+                              <!--href="http://www.agro.basf.com/agr/AP-Internet/en/"-->
+                              <!--class="btn btn-primary"-->
+                              <!--role="button">View</a></p>-->
+                    <!--</div>-->
+                    <!--<div class="col col-md-6">-->
+                        <!--<img src="images/dow_tout-middle-gold_plant2.jpg"-->
+                             <!--alt="Dow"-->
+                             <!--class="img-thumbnail img-responsive">-->
+                        <!--<h4>Dow</h4>-->
+
+                        <!--<p>Curabitur blandit, velit a rutrum cursus, mi massa porta nulla, nec ornare nunc leo sit amet-->
+                            <!--ligula. Praesent risus purus, ultrices ac sollicitudin in, lacinia id ligula. Morbi in-->
+                            <!--dictum nunc.</p>-->
+
+                        <!--<p><a rel="nofollow"-->
+                              <!--href="http://www.dowagro.com/"-->
+                              <!--class="btn btn-primary"-->
+                              <!--role="button">View</a></p>-->
+                    <!--</div>-->
+                <!--</article>-->
+            </div>
+        </div>
+        <footer class="row credit">
+            <div class="col col-md-12">
+                <div id="ncr_footer">
+                    Copyright © 2015 <a href="#">RoadTrekkers</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+<!--Fade-in Logo-->
+<script defer src="slider/jquery.flexslider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#logo').hide().fadeIn(5000);
+    });
+</script>
+</body>
+</html>
